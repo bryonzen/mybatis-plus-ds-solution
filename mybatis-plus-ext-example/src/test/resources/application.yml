@@ -1,0 +1,29 @@
+# DataSource Config
+spring:
+  datasource:
+    dynamic:
+      primary: db0
+      # 是否启用严格模式,默认不启动. 严格模式下未匹配到数据源直接报错, 非严格模式下则使用默认数据源primary所设置的数据源
+      strict: true
+      datasource:
+        db0:
+          driver-class-name: org.h2.Driver
+          username: root
+          password: test
+          url: jdbc:h2:mem:testdb0;MODE=MYSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+          schema: classpath:db0/schema-user.sql
+          data: classpath:db0/data-user.sql
+        db1:
+          driver-class-name: org.h2.Driver
+          username: root
+          password: test
+          url: jdbc:h2:mem:testdb1;MODE=MYSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+          schema: classpath:db1/schema-address.sql
+          data: classpath:db1/data-address.sql
+        db2:
+          driver-class-name: org.h2.Driver
+          username: root
+          password: test
+          url: jdbc:h2:mem:testdb2;MODE=MYSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+          schema: classpath:db2/schema-product.sql
+          data: classpath:db2/data-product.sql
